@@ -58,7 +58,7 @@ const getQuarter = (monthly: MonthPerformance[], quarter: number, year?: number)
   }
 }
 
-const calculatePerformance = (responses: UserResponse[]): UserPerformance => {
+const calculatePerformance = (responses: UserResponse[], quarter?: number, year?: number ): UserPerformance => {
   //TODO: calculate avg performance
   let difficultySum: number = 0
   let performanceSum: number = 0
@@ -121,7 +121,7 @@ const calculatePerformance = (responses: UserResponse[]): UserPerformance => {
   return {
     performanceRating: +((performanceSum/difficultySum) * 100).toFixed(2),
     monthlyBreakdown: monthlyResult,
-    quarter: getQuarter(monthlyResult, 4, 2020)
+    quarter: getQuarter(monthlyResult, quarter, year)
   }
 }
 

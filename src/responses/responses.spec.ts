@@ -77,19 +77,19 @@ describe('Responses Module', () => {
 
   describe('calculatePerformance', () => {
     test('should return an average performance', () => {
-      expect(calculatePerformance(performanceResponses).performanceRating).toEqual(40.33)
+      expect(calculatePerformance(performanceResponses, 4, 2020).performanceRating).toEqual(40.33)
     })
 
     test('should return monthly average performance', () => {
-      expect(calculatePerformance(performanceResponses).monthlyBreakdown).toEqual(expect.arrayContaining(monthlyBreakdownResponses))
+      expect(calculatePerformance(performanceResponses, 4, 2020).monthlyBreakdown).toEqual(expect.arrayContaining(monthlyBreakdownResponses))
     })
 
     test('should return Q4 average performance', () => {
-      expect(calculatePerformance(performanceResponses).quarter.performanceRating).toEqual(11.11)
+      expect(calculatePerformance(performanceResponses, 4, 2020).quarter.performanceRating).toEqual(11.11)
     })
 
     test('should return Q4 monthly average performance', () => {
-      expect(calculatePerformance(performanceResponses).quarter.monthlyBreakdown).toEqual(
+      expect(calculatePerformance(performanceResponses, 4, 2020).quarter.monthlyBreakdown).toEqual(
         [
           { date: '10-2020', performanceRating: 0 },
           { date: '12-2020', performanceRating: 0 },
